@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latency.io | Web Development & Social Media Management</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              200: '#99f6e4',
+              300: '#5eead4',
+              400: '#2dd4bf',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    
+  </style>
+</head>
+<body class="antialiased">
+  <!-- Background Elements -->
+  <div class="mesh-bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="noise"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 nav-blur transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <div class="flex items-center gap-2 group cursor-pointer">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+            <i data-lucide="zap" class="w-5 h-5 text-white"></i>
+          </div>
+          <span class="font-display font-bold text-2xl tracking-tight text-white">Latency<span class="text-indigo-400">.io</span></span>
+        </div>
+        
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#services" class="text-sm font-medium text-slate-300 hover:text-white transition-colors relative group">
+            Services
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#work" class="text-sm font-medium text-slate-300 hover:text-white transition-colors relative group">
+            Work
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="#about" class="text-sm font-medium text-slate-300 hover:text-white transition-colors relative group">
+            About
+            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a href="index.html" class="magnetic-btn px-6 py-2.5 rounded-full bg-white text-slate-900 font-semibold text-sm hover:shadow-lg hover:shadow-indigo-500/25 transition-all duration-300 hover:scale-105">
+            Homepage
+          </a>
+        </div>
+        
+        <button class="md:hidden text-white" id="mobileMenuBtn">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-slate-900/95 backdrop-blur-xl border-t border-white/5" id="mobileMenu">
+      <div class="px-6 py-4 space-y-3">
+        <a href="#services" class="block py-2 text-slate-300 hover:text-white">Services</a>
+        <a href="#work" class="block py-2 text-slate-300 hover:text-white">Work</a>
+        <a href="#about" class="block py-2 text-slate-300 hover:text-white">About</a>
+        <a href="#contact" class="block py-2 text-indigo-400 font-semibold">Start Project</a>
+      </div>
+    </div>
+  </nav>
+
+   
+    <main>
+      
+
+        <!-- Filter Tabs -->
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All Work</button>
+            <button class="filter-btn" data-filter="web">Web Development</button>
+            <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+            <button class="filter-btn" data-filter="branding">Branding</button>
+            <button class="filter-btn" data-filter="app">Web Apps</button>
+        </div>
+
+        <!-- Works Grid -->
+        <div class="works-grid" id="worksGrid">
+            <!-- Cards injected by JS -->
+        </div>
+   
+    </main>
+
+    
+
+    
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 py-12 relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div class="col-span-2">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+              <i data-lucide="zap" class="w-4 h-4 text-white"></i>
+            </div>
+            <span class="font-display font-bold text-xl text-white">Latency<span class="text-indigo-400">.io</span></span>
+          </div>
+          <p class="text-slate-400 text-sm max-w-sm">Premium digital agency specializing in web development and social media management. We build fast, we grow fast.</p>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold text-white mb-4">Services</h4>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li><a href="#" class="hover:text-indigo-400 transition-colors">Web Development</a></li>
+            <li><a href="#" class="hover:text-indigo-400 transition-colors">Social Media</a></li>
+            <li><a href="#" class="hover:text-indigo-400 transition-colors">UI/UX Design</a></li>
+            <li><a href="#" class="hover:text-indigo-400 transition-colors">SEO & Growth</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold text-white mb-4">Connect</h4>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 hover:border-indigo-500 transition-all">
+              <i data-lucide="twitter" class="w-4 h-4"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 hover:border-indigo-500 transition-all">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 hover:border-indigo-500 transition-all">
+              <i data-lucide="linkedin" class="w-4 h-4"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 hover:border-indigo-500 transition-all">
+              <i data-lucide="github" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-slate-500 text-sm">© 2026 Latency.io. All rights reserved.</p>
+        <div class="flex gap-6 text-sm text-slate-500">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+
+  <script>
+       // work page
+
+     // Portfolio Data
+        const projects = [
+            {
+                id: 1,
+                title: "Dental clinic",
+                description: "Modern dental clinic website with online booking, service showcase, and patient testimonials.",
+                category: "web",
+                tags: ["React", "Next.js", "Tailwind"],
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+                stats: { views: "12", likes: "5" },
+                badge: "Dental clinic",
+                link: "https://nrdentalclinic.com/"
+            },
+            {
+                id: 2,
+                title: "Yoga studio",
+                description: "Serene yoga studio site with class schedules, instructor bios, and integrated booking system.",
+                category: "Fitness",
+                tags: ["Shopify", "Hydrogen", "Node.js"],
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+                stats: { views: "8", likes: "4" },
+                badge: "Yoga studio",
+                link: "#"
+            },
+            {
+                id: 3,
+                title: "Clothing Store",
+                description: "Trendy fashion with AR try-on features, personalized styling, and seamless checkout.",
+                category: "app",
+                tags: ["Vue.js", "Firebase", "WebRTC"],
+                image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
+                stats: { views: "15.1K", likes: "1.2K" },
+                badge: "Clothing Store",
+                link: "#"
+            },
+            {
+                id: 4,
+                title: "",
+                description: "Immersive portfolio for a 3D motion design studio with WebGL animations and smooth transitions.",
+                category: "branding",
+                tags: ["Three.js", "GSAP", "WebGL"],
+                image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&q=80",
+                stats: { views: "22.3K", likes: "2.1K" },
+                badge: "Branding",
+                link: "#"
+            },
+            {
+                id: 5,
+                title: "Orbit SaaS",
+                description: "B2B analytics dashboard with customizable widgets, export capabilities, and team collaboration tools.",
+                category: "app",
+                tags: ["React", "D3.js", "PostgreSQL"],
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+                stats: { views: "9.8K", likes: "756" },
+                badge: "SaaS",
+                link: "#"
+            },
+            {
+                id: 6,
+                title: "Ember Fashion",
+                description: "Luxury fashion e-commerce with AR try-on features and personalized styling recommendations.",
+                category: "ecommerce",
+                tags: ["Next.js", "Stripe", "AR.js"],
+                image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80",
+                stats: { views: "18.5K", likes: "1.5K" },
+                badge: "Featured",
+                link: "#"
+            }
+        ];
+
+        // DOM Elements
+        const worksGrid = document.getElementById('worksGrid');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        // Create Card HTML
+        function createCard(project, index) {
+            return `
+                <article class="work-card" data-category="${project.category}" style="transition-delay: ${index * 0.1}s">
+                    <div class="card-image">
+                        <img src="${project.image}" alt="${project.title}" loading="lazy">
+                        <span class="card-badge">${project.badge}</span>
+                        <div class="card-overlay">
+                            <a href="${project.link}" class="view-project">
+                                View Project
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                    
+                        <h3 class="card-title">${project.title}</h3>
+                        <p class="card-description">${project.description}</p>
+                        <div class="card-footer">
+                            <div class="card-stats">
+                                <span class="stat">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                    ${project.stats.views}
+                                </span>
+                                <span class="stat">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                    ${project.stats.likes}
+                                </span>
+                            </div>
+                            <a href="${project.link}" class="card-link" aria-label="Visit project">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                    <polyline points="7 7 17 7 17 17"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        // Render Projects
+        function renderProjects(filter = 'all') {
+            const filtered = filter === 'all' 
+                ? projects 
+                : projects.filter(p => p.category === filter);
+            
+            worksGrid.innerHTML = filtered.map((p, i) => createCard(p, i)).join('');
+            
+            // Trigger animation
+            requestAnimationFrame(() => {
+                document.querySelectorAll('.work-card').forEach((card, i) => {
+                    setTimeout(() => card.classList.add('visible'), i * 100);
+                });
+            });
+        }
+
+        // Filter Functionality
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderProjects(btn.dataset.filter);
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Initialize
+        renderProjects();
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Parallax effect for background glow
+        document.addEventListener('mousemove', (e) => {
+            const glows = document.querySelectorAll('.bg-glow');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            glows.forEach((glow, i) => {
+                const speed = (i + 1) * 20;
+                glow.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+       
+    </script>
+</body>
+</html>

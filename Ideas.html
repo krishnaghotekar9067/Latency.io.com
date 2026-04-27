@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latency.io | Web Development & Social Media Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+
+    </style>
+</head>
+
+<body class="antialiased">
+    <!-- Background Elements -->
+    <div class="mesh-bg"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="noise"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 nav-blur transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-2 group cursor-pointer">
+                    <div
+                        class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
+                        <i data-lucide="zap" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <span class="font-display font-bold text-2xl tracking-tight text-white">Latency<span
+                            class="text-indigo-400">.io</span></span>
+                </div>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#services"
+                        class="text-sm font-medium text-slate-300 hover:text-white transition-colors relative group">
+                        Services
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#work"
+                        class="text-sm font-medium text-slate-300 hover:text-white transition-colors relative group">
+                        Work
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#about"
+                        class="text-sm font-medium text-slate-300 hover:text-white transition-colors relative group">
+                        About
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contact"
+                        class="magnetic-btn px-6 py-2.5 rounded-full bg-white text-slate-900 font-semibold text-sm hover:shadow-lg hover:shadow-indigo-500/25 transition-all duration-300 hover:scale-105">
+                        Start Project
+                    </a>
+                </div>
+
+                <button class="md:hidden text-white" id="mobileMenuBtn">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-slate-900/95 backdrop-blur-xl border-t border-white/5" id="mobileMenu">
+            <div class="px-6 py-4 space-y-3">
+                <a href="#services" class="block py-2 text-slate-300 hover:text-white">Services</a>
+                <a href="#work" class="block py-2 text-slate-300 hover:text-white">Work</a>
+                <a href="#about" class="block py-2 text-slate-300 hover:text-white">About</a>
+                <a href="#contact" class="block py-2 text-indigo-400 font-semibold">Start Project</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="card-example">
+        <div class="card-center"">
+             
+            <div class="card-content">
+              
+                Images
+            </div>
+        </div>
+        <div class="card-center">
+             
+           
+               
+            
+
+            
+        </div>
+
+        <div class="card-center">
+             
+            <div class="card-content">
+               
+
+            </div>
+        </div>
+        <div class="card-center">
+             
+            <div class="card-content">
+               
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-12 relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div
+                            class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                            <i data-lucide="zap" class="w-4 h-4 text-white"></i>
+                        </div>
+                        <span class="font-display font-bold text-xl text-white">Latency<span
+                                class="text-indigo-400">.io</span></span>
+                    </div>
+                    <p class="text-slate-400 text-sm max-w-sm">Premium digital agency specializing in web development
+                        and social media management. We build fast, we grow fast.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Web Development</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition-colors">Social Media</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition-colors">UI/UX Design</a></li>
+                        <li><a href="#" class="hover:text-indigo-400 transition-colors">SEO & Growth</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Connect</h4>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 hover:border-indigo-500 transition-all">
+                            <i data-lucide="twitter" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 hover:border-indigo-500 transition-all">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 hover:border-indigo-500 transition-all">
+                            <i data-lucide="linkedin" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-indigo-600 hover:border-indigo-500 transition-all">
+                            <i data-lucide="github" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-sm">© 2026 Latency.io. All rights reserved.</p>
+                <div class="flex gap-6 text-sm text-slate-500">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

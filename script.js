@@ -136,3 +136,11 @@
       gsap.to('.orb-2', { x: -x * 2, y: -y * 2, duration: 2, ease: "power2.out" });
       gsap.to('.orb-3', { x: x * 3, y: -y * 3, duration: 2, ease: "power2.out" });
     });
+
+
+
+
+
+
+
+
